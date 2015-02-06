@@ -1,7 +1,7 @@
 #The environment variable DATABASE_URL should be in the following format:
 # => postgres://{user}:{password}@{host}:{port}/path
 #Heroku config
-configure :production, :development do
+configure :production do
   db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
  
   ActiveRecord::Base.establish_connection(
@@ -16,3 +16,14 @@ configure :production, :development do
   require 'dotenv'
   Dotenv.load
 end 
+
+
+configure :development do
+  ActiveRecord::Base.establish_connection(
+    :adapter => 'sqlite3',
+    :database =>  'sinatra_application.sqlite3.db'
+  )
+
+  require 'dotenv'
+  Dotenv.load
+end

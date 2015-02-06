@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
-gem 'sinatra'
+gem "sinatra"
 gem "activerecord"
 gem "sinatra-activerecord"
-gem "pg" 
+gem "pg"
+gem "pry"
