@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205042220) do
+ActiveRecord::Schema.define(version: 20150210035843) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "twittertrends", force: :cascade do |t|
-    t.string   "trend"
+    t.integer  "woe_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "twittertrends", ["woe_id"], name: "index_twittertrends_on_woe_id", using: :btree
+
+  create_table "woes", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

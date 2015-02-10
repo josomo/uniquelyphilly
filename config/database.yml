@@ -4,10 +4,3 @@ development:
   username: uniquelyphilly
   password: 
   host: localhost 
-
-# production:
-#   adapter: postgresql
-#   database: uniquelyphilly_production
-#   username: <%= ENV['PG_USER'] %>
-#   password: <%= ENV['PG_PASS'] %>
-#   host: localhost 
