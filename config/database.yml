@@ -2,5 +2,5 @@ development:
   adapter: postgresql
   database: uniquelyphilly_development
   username: uniquelyphilly
-  password: 
+  password: password
   host: localhost 
