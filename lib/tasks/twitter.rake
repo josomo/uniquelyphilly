@@ -12,28 +12,28 @@ task :twittergrab_world do
   twitter_trend_grab("World")
 end
 
-task :push_uniques do
+task :twitterpush_uniques do
   latest_world = latest_trends("World")
   latest_us = latest_trends("United States")
   latest_philly = latest_trends("Philadelphia")
-  [latest_philly - latest_world - latest_us].each { |t| twitter_post.client.update("#{t} is trending on Twitter"); sleep 5 }
+  [latest_philly - latest_world - latest_us].each { |t| twitter_post.client.update("#{t} is trending on Twitter in #philly"); sleep 5 }
 end
 
 def twitter_auth
   client = Twitter::REST::Client.new do |config|
-    config.consumer_key        = "M6lZ3IuZ6GqZDEKHKzEb7aUs7"
-    config.consumer_secret     = "lyS56UzZDXxv842x6jGgFsNqQZ5OBDOoHgRQZORAmt8dEVVv82"
-    config.access_token        = "2792619245-pxcje7PfDsisAuhMQh1vMfHDVHJ5dSPVPkVZxDg"
-    config.access_token_secret = "6vDYSJrTZA1sGLoHb0JHbU0wh7EnBgSC1NixqVcK9Mck4"
+    config.consumer_key        = ENV['T1CK']
+    config.consumer_secret     = ENV['T1CS']
+    config.access_token        = ENV['T1AT']
+    config.access_token_secret = ENV['T1ATS']
   end
 end
 
 def twitter_post
   client = Twitter::REST::Client.new do |config|
-    config.consumer_key        = ""
-    config.consumer_secret     = ""
-    config.access_token        = ""
-    config.access_token_secret = ""
+    config.consumer_key        = ENV['T2CK']
+    config.consumer_secret     = ENV['T2CS']
+    config.access_token        = ENV['T2AT']
+    config.access_token_secret = ENV['T1ATS']
   end
 end
 

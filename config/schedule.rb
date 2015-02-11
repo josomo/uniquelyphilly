@@ -20,5 +20,8 @@
 # Learn more: http://github.com/javan/whenever
 
 every 5.minutes do
-  rake "blerg"
+  rake twittergrab_philly
+  rake twittergrab_us
+  rake twittergrab_world
+  rake twitterpush_uniques
 end
