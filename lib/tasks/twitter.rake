@@ -33,7 +33,7 @@ def twitter_post
     config.consumer_key        = ENV['T2CK']
     config.consumer_secret     = ENV['T2CS']
     config.access_token        = ENV['T2AT']
-    config.access_token_secret = ENV['T1ATS']
+    config.access_token_secret = ENV['T2ATS']
   end
 end
 

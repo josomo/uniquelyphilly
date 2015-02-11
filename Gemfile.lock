@@ -34,6 +34,7 @@ GEM
     minitest (5.5.1)
     multipart-post (2.0.0)
     naught (1.0.0)
+    open4 (1.3.4)
     pg (0.18.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -42,6 +43,10 @@ GEM
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
+    rake (10.4.2)
+    rake-remote_task (2.2.2)
+      open4 (~> 1.0)
+      rake (>= 0.8, < 11.0)
     simple_oauth (0.3.1)
     sinatra (1.4.5)
       rack (~> 1.4)
@@ -76,6 +81,7 @@ DEPENDENCIES
   activerecord
   pg
   pry
+  rake-remote_task
   sinatra
   sinatra-activerecord
   twitter

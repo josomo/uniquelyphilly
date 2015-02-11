@@ -5,7 +5,7 @@ require './models/woe'
 require './models/twittertrend'
 
 require 'pry'
-binding.pry
+# binding.pry
 
 get '/' do
   
