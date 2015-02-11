@@ -16,7 +16,7 @@ task :twitterpush_uniques do
   latest_world = latest_trends("World")
   latest_us = latest_trends("United States")
   latest_philly = latest_trends("Philadelphia")
-  [latest_philly - latest_world - latest_us].each { |t| twitter_post.client.update("#{t} is trending on Twitter in #philly"); sleep 5 }
+  [latest_philly - latest_world - latest_us].each { |t| twitter_post.client.update("#{t} is trending on Twitter in #philly"); sleep 10 }
 end
 
 def twitter_auth
