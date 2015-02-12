@@ -13,10 +13,11 @@ task :twittergrab_world do
 end
 
 task :twitterpush_uniques do
+  latest_philly = latest_trends("Philadelphia")
+  recent_philly = recent_trends("Philadelphia")
   latest_world = latest_trends("World")
   latest_us = latest_trends("United States")
-  latest_philly = latest_trends("Philadelphia")
-  [latest_philly - latest_world - latest_us].each { |t| twitter_post.client.update("#{t} is trending on Twitter in #philly"); sleep 10 }
+  (latest_philly -recent_philly - latest_world - latest_us).each { |t| twitter_post.update("#{t} is trending on Twitter in #philly"); sleep 10 }
 end
 
 def twitter_auth
@@ -43,5 +44,9 @@ def twitter_trend_grab(place)
 end
 
 def latest_trends(place)
-  Twittertrend.where(created_at: 2.minutes.ago..Time.now.utc, woe_id: Woe.find_by(name: place)).map {|t| t.name}
+  Twittertrend.where(created_at: 3.minutes.ago..Time.now.utc, woe_id: Woe.find_by(name: place)).map {|t| t.name}
+end
+
+def recent_trends(place)
+  Twittertrend.where(created_at: 120.minutes.ago..Time.now.utc, woe_id: Woe.find_by(name: place)).map {|t| t.name}
 end

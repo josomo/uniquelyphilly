@@ -1,13 +1,13 @@
 development:
   adapter: postgresql
-  database: uniquelyphilly_development
+  database: uniquelyphilly
   username: uniquelyphilly
   password: ENV['PG_PW']
   host: localhost 
 
 production:
   adapter: postgresql
-  database: uniquelyphilly_development
+  database: uniquelyphilly
   username: uniquelyphilly
   password: ENV['PG_PW']
   host: localhost 
