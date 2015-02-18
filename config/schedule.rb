@@ -19,9 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
+set :output, "/home/deployer/uniquelyphilly.com/log/cron_log.log"
+
 every 5.minutes do
-  #rake "twittergrab_philly"
-  #rake "twittergrab_us"
-  #rake "twittergrab_world"
-  #rake twitterpush_uniques
+  rake 'twitter'
 end

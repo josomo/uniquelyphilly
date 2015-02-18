@@ -15,27 +15,9 @@ def twitter_push
   recent_philly = recent_trends("Philadelphia")
   latest_world = latest_trends("World")
   latest_us = latest_trends("United States")
-  (latest_philly -recent_philly - latest_world - latest_us).each { |t| twitter_post.update("#{t} is trending on Twitter in #philly"); sleep 10 }
+  uniques = (latest_philly - recent_philly - latest_world - latest_us)
+  uniques.each { |t| twitter_post.update("#{t} is trending on Twitter in #philly"); sleep 10 }
 end
-# task :twittergrab_philly do 
-#   twitter_trend_grab("Philadelphia")
-# end
-
-# task :twittergrab_us do 
-#   twitter_trend_grab("United States")
-# end
-
-# task :twittergrab_world do 
-#   twitter_trend_grab("World")
-# end
-
-# task :twitterpush_uniques do
-#   latest_philly = latest_trends("Philadelphia")
-#   recent_philly = recent_trends("Philadelphia")
-#   latest_world = latest_trends("World")
-#   latest_us = latest_trends("United States")
-#   (latest_philly -recent_philly - latest_world - latest_us).each { |t| twitter_post.update("#{t} is trending on Twitter in #philly"); sleep 10 }
-# end
 
 def twitter_auth
   client = Twitter::REST::Client.new do |config|
@@ -67,3 +49,24 @@ end
 def recent_trends(place)
   Twittertrend.where(created_at: 120.minutes.ago..Time.now.utc, woe_id: Woe.find_by(name: place)).map {|t| t.name}
 end
+
+
+# task :twittergrab_philly do 
+#   twitter_trend_grab("Philadelphia")
+# end
+
+# task :twittergrab_us do 
+#   twitter_trend_grab("United States")
+# end
+
+# task :twittergrab_world do 
+#   twitter_trend_grab("World")
+# end
+
+# task :twitterpush_uniques do
+#   latest_philly = latest_trends("Philadelphia")
+#   recent_philly = recent_trends("Philadelphia")
+#   latest_world = latest_trends("World")
+#   latest_us = latest_trends("United States")
+#   (latest_philly -recent_philly - latest_world - latest_us).each { |t| twitter_post.update("#{t} is trending on Twitter in #philly"); sleep 10 }
+# end
