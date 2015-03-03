@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  database: uniquelyphilly
+  username: uniquelyphilly
+  password: password
+  host: localhost 
+
+production:
+  adapter: postgresql
+  database: uniquelyphilly
+  username: uniquelyphilly
+  password: password
+  host: localhost 
