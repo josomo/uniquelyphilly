@@ -6,7 +6,7 @@ http://www.twitter.com/uniquelyphilly
  * New plan: after additional social media sites are added: tumblr, vine, instagram, etc, I'll abstract out the 'philly' part and maybe even the entire location-based searching part so that it's a general trend monitoring tool.
 
 Added Reddit. Remining sites to add:
-*Vine
-*Google
-*Tumblr
-*Instagram
+  *Vine
+  *Google
+  *Tumblr
+  *Instagram
